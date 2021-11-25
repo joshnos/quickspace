@@ -10,15 +10,25 @@ exports.handler = async function(event) {
 }
 
 async function saveCargo(requestBody) {
+  let itemArray = [];
+  const scanParams = {
+    TableName: dynamodbTableName
+  }
+  const dynamoData = await dynamodb.scan(scanParams).promise();
+  itemArray = itemArray.concat(dynamoData.Items);
+  
+  requestBody.id = itemArray.length ++;
+  
   const params = {
     TableName: dynamodbTableName,
     Item: requestBody
   }
-  return await dynamodb.put(params).promise().then(() => {
+  return await dynamodb.put(params).promise().then((response) => {
     const body = {
       Operation: 'SAVE',
       Message: 'SUCCESS',
-      Item: requestBody
+      Item: requestBody,
+      response: response
     }
     return buildResponse(200, body);
   }, (error) => {
