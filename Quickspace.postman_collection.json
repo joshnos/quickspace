@@ -1,0 +1,41 @@
+{
+	"info": {
+		"_postman_id": "2aac122c-b122-4633-9254-88dcd7d2ef27",
+		"name": "Quickspace",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Mariano Soule\",\n  \"email\": \"mariano.soule@gmail.com\",\n  \"phone\": \"+56178978978\",\n  \"origin\": \"Santiago\",\n  \"destination\": \"Viña del mar\",\n  \"pickUpDate\": \"01-11-2021\",\n  \"dropOffDate\": \"11-11-2021\",\n  \"cargoType\": \"Carga seca\",\n  \"dimensions\": \"3 m3\",\n  \"weight\": \"3 kg\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://fq2bosxsr5.execute-api.us-east-2.amazonaws.com/default/quickspace-lambda-cargo-inventory",
+					"protocol": "https",
+					"host": [
+						"fq2bosxsr5",
+						"execute-api",
+						"us-east-2",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"default",
+						"quickspace-lambda-cargo-inventory"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
